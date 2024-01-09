@@ -17,15 +17,12 @@ namespace LibraryTask.Implementations
             Book book = _libraryService.Books.FirstOrDefault(b => b.Id == id);
             if (book != null)
             {
-                // Книга найдена, накапливаем её стоимость
                 totalPrice += book.Price;
                 return totalPrice;
             }
             else
             {
-                // Книга не найдена, можно выбрасывать исключение или возвращать специальное значение
-                throw new ArgumentException($"Книга с идентификатором {id} не найдена.");
-                // или return 0; // или return double.NaN; в зависимости от логики вашего приложения
+                throw new ArgumentException($"Book with identifier {id} not found.");
             }
         }
     }
