@@ -13,6 +13,12 @@ The main menu presents the following options:
 - **5. Order a book by id:** Allows users to order books by entering their IDs. The total order value is calculated, and the user can complete the order by entering '0'.
 - **0. Break:** Exits the application.
 
+# LibraryService Class
+
+## Overview
+
+The `LibraryService` class is responsible for managing the collection of books in a library. It provides methods to add books, retrieve information about books, display all books, and remove books based on their ID.
+
 ## Methods
 
 ### 1. AddBook
@@ -38,8 +44,28 @@ The main menu presents the following options:
 - **Parameters:**
   - `id` (type `int`): The ID of the book to be removed.
 
-## Notes
+# OrderService Class
 
-- Ensure valid input when using methods that require parameters, such as book details or book IDs, to prevent errors.
-- The class uses a `List<Book>` to store the collection of books.
-- Displayed information includes book ID, name, author name, page count, price, and code.
+## Overview
+
+The `OrderService` class is responsible for handling orders within the Library Management System. It interacts with the `LibraryService` to calculate the total price of a book based on its ID.
+
+## Constructor
+
+### OrderService
+
+- **Description:** Initializes a new instance of the `OrderService` class.
+- **Parameters:**
+  - `libraryService` (type `LibraryService`): An instance of the `LibraryService` class to interact with the library's book collection.
+
+## Methods
+
+### GetTotalPrice
+
+- **Description:** Calculates the total price of a book based on its ID.
+- **Parameters:**
+  - `id` (type `int`): The ID of the book for which the total price is calculated.
+- **Returns:**
+  - `double`: The total price of the book.
+- **Throws:**
+  - `ArgumentException`: If the book with the specified ID is not found in the library.
